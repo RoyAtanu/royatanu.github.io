@@ -1,0 +1,955 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { experiences, educations, skillGroups } from '../data/experience';
+---
+
+<BaseLayout title="Atanu Roy | R&D Engineering Leader & Manager">
+
+  <!-- HERO SECTION -->
+  <section id="about" class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Atanu <span class="accent-text">Roy</span>
+        </h1>
+        <div class="hero-subtitle">
+          R&D Leader | Software Architect | Entrepreneur
+        </div>
+        <div class="hero-meta">
+          <span><i class="fa-solid fa-map-pin"></i> Pune, India</span>
+          <span><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@atanuroy.dev">contact@atanuroy.dev</a></span>
+        </div>
+        <p class="hero-lead">
+          I enable R&D teams at high-growth businesses to deliver quality with consistency. With over 13 years of experience building, leading, and empowering high-performance Agile engineering teams in enterprise-scale R&D organizations, I focus on scaling software architectures, optimizing delivery pipelines, and nurturing leadership talent.
+        </p>
+        <div class="social-icons-group">
+          <a href="https://www.linkedin.com/in/atanuroy2020/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/RoyAtanu" aria-label="GitHub" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://stackoverflow.com/users/2782901/atanu-roy?tab=profile" aria-label="Stack Overflow" target="_blank" rel="noopener">
+            <i class="fab fa-stack-overflow"></i>
+          </a>
+          <a href="https://twitter.com/roy_atanu" aria-label="Twitter" target="_blank" rel="noopener">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="/profile.jpg" alt="Atanu Roy" class="profile-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT INSIGHTS / PHILOSOPHY STRIP -->
+  <section class="philosophy-strip">
+    <div class="container strip-container">
+      <div class="strip-item">
+        <span class="strip-title">My Leadership Approach</span>
+        <p>“Empowering teams through trust, scaling architectures through simple abstractions, and building systems with high integrity”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="section-padding bg-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Career Journey</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+
+      <div class="timeline">
+        {experiences.map((exp, index) => (
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <span class="timeline-company">{exp.company}</span>
+              <span class="timeline-period">{exp.period}</span>
+            </div>
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">{exp.role}</h3>
+              {exp.highlights && exp.highlights.length > 0 && (
+                <ul class="timeline-highlights">
+                  {exp.highlights.map(hl => (
+                    <li><i class="fa-solid fa-circle-check accent-bullet"></i> {hl}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Expertise</span>
+        <h2 class="section-title">Leadership & Tech Stack</h2>
+      </div>
+
+      <div class="skills-grid">
+        {skillGroups.map(group => (
+          <div class="skills-card">
+            <h3 class="skills-category-title">{group.category}</h3>
+            <ul class="skills-list">
+              {group.skills.map(skill => (
+                <li class="skill-tag">
+                  <i class="fa-solid fa-shield-halved skill-icon"></i>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <!-- COMPACT VISUAL TECH STACK -->
+      <div class="skills-stack-grid">
+        
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-cloud compact-card-icon"></i>
+            <h4 class="compact-card-title">Multi-Cloud</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">AWS</span>
+            <span class="mini-tag">Azure</span>
+            <span class="mini-tag">GCP</span>
+            <span class="mini-tag">DigitalOcean</span>
+            <span class="mini-tag">OVH Cloud</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-gears compact-card-icon"></i>
+            <h4 class="compact-card-title">Backend</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">Python</span>
+            <span class="mini-tag">TypeScript</span>
+            <span class="mini-tag">Go</span>
+            <span class="mini-tag">C#</span>
+            <span class="mini-tag">Java</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-server compact-card-icon"></i>
+            <h4 class="compact-card-title">Infrastructure</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">Docker</span>
+            <span class="mini-tag">Kubernetes</span>
+            <span class="mini-tag">Helm Charts</span>
+            <span class="mini-tag">Terraform</span>
+            <span class="mini-tag">CloudFormation</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-laptop-code compact-card-icon"></i>
+            <h4 class="compact-card-title">Frontend</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">React</span>
+            <span class="mini-tag">Next.js</span>
+            <span class="mini-tag">Vue.js</span>
+            <span class="mini-tag">Tailwind CSS</span>
+            <span class="mini-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-infinity compact-card-icon"></i>
+            <h4 class="compact-card-title">DevOps</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">Jenkins</span>
+            <span class="mini-tag">GitHub Actions</span>
+            <span class="mini-tag">Azure DevOps</span>
+            <span class="mini-tag">CircleCI</span>
+            <span class="mini-tag">GitOps workflows</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-database compact-card-icon"></i>
+            <h4 class="compact-card-title">Data</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">PostgreSQL</span>
+            <span class="mini-tag">MongoDB</span>
+            <span class="mini-tag">Kafka</span>
+            <span class="mini-tag">Redis</span>
+            <span class="mini-tag">Snowflake</span>
+            <span class="mini-tag">ElasticSearch</span>
+            <span class="mini-tag">S3</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-brain compact-card-icon"></i>
+            <h4 class="compact-card-title">AI/ML</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">OpenAI</span>
+            <span class="mini-tag">Google Vertex AI</span>
+            <span class="mini-tag">Anthropic</span>
+            <span class="mini-tag">Azure AI Foundry</span>
+            <span class="mini-tag">LangChain</span>
+            <span class="mini-tag">CrewAI</span>
+          </div>
+        </div>
+
+        <div class="compact-tech-card">
+          <div class="compact-card-header">
+            <i class="fa-solid fa-chart-line compact-card-icon"></i>
+            <h4 class="compact-card-title">Observability</h4>
+          </div>
+          <div class="compact-card-tags">
+            <span class="mini-tag">Prometheus</span>
+            <span class="mini-tag">Grafana</span>
+            <span class="mini-tag">New Relic</span>
+            <span class="mini-tag">Splunk</span>
+            <span class="mini-tag">SignOz</span>
+            <span class="mini-tag">Datadog</span>
+            <span class="mini-tag">OpenTelemetry</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & INTERESTS SIDE-BY-SIDE -->
+  <section class="section-padding bg-alt">
+    <div class="container grid-two-col">
+      <!-- Education -->
+      <div>
+        <div class="section-header small-header">
+          <span class="section-tag">Academics</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+        <div class="edu-card">
+          {educations.map(edu => (
+            <div class="edu-item">
+              <h3 class="edu-degree">{edu.degree}</h3>
+              <p class="edu-field">{edu.field}</p>
+              <p class="edu-inst">{edu.institution}</p>
+              <span class="edu-period">{edu.period}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div>
+        <div class="section-header small-header">
+          <span class="section-tag">Beyond Work</span>
+          <h2 class="section-title">Personal Interests</h2>
+        </div>
+        <div class="interests-card">
+          <p class="interest-intro">
+            When I'm not steering R&D teams or designing platform architecture, I explore a variety of active pursuits:
+          </p>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <i class="fa-solid fa-kitchen-set interest-icon"></i>
+              <div>
+                <h4>Culinary Arts</h4>
+                <p>I find immense relaxation and lessons in focus while cooking in my kitchen.</p>
+              </div>
+            </div>
+            <div class="interest-item">
+              <i class="fa-solid fa-screwdriver-wrench interest-icon"></i>
+              <div>
+                <h4>Tinkering with Technology</h4>
+                <p>Hacking on side projects, building custom tools, and staying hands-on with cutting-edge frameworks and developer setups.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG / ARTICLES SECTION -->
+  <section id="blog" class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Thought Leadership</span>
+        <h2 class="section-title">Published Articles</h2>
+      </div>
+
+      <div class="blog-grid">
+        <a href="https://www.linkedin.com/pulse/developers-stop-writing-code-atanu-roy/" target="_blank" rel="noopener" class="blog-card">
+          <div class="blog-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Developers, Stop writing code!</h3>
+            <p class="blog-card-excerpt">A deep-dive analysis into why high-performance engineers must shift focus from raw output to solving architectural and business bottlenecks.</p>
+            <span class="blog-card-link">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/pulse/things-i-learnt-developer-from-kitchen-atanu-roy/" target="_blank" rel="noopener" class="blog-card">
+          <div class="blog-icon-wrap"><i class="fa-solid fa-utensils"></i></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">The things I learnt as a developer, from Kitchen</h3>
+            <p class="blog-card-excerpt">Reflective analogies of multi-tasking, prep-work, and system architecture drawn directly from culinary experiences in the kitchen.</p>
+            <span class="blog-card-link">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/pulse/work-from-home-why-i-think-might-get-addicted-atanu-roy/" target="_blank" rel="noopener" class="blog-card">
+          <div class="blog-icon-wrap"><i class="fa-solid fa-house-laptop"></i></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">Work from Home : Why I might get addicted to it</h3>
+            <p class="blog-card-excerpt">Early observations on performance improvements, self-discipline, and deep focus in a fully distributed engineering setup.</p>
+            <span class="blog-card-link">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* Layout Containers */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .grid-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .section-padding {
+    padding: 6rem 0;
+  }
+
+  .bg-alt {
+    background-color: var(--bg-secondary);
+    transition: background-color var(--transition-speed) ease;
+  }
+
+  /* Section Header styling */
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .small-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+    color: var(--text-primary);
+  }
+
+  /* HERO SECTION */
+  .hero-section {
+    padding: 8rem 0 5rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 0.95;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-meta i {
+    color: var(--accent);
+    margin-right: 0.35rem;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+  }
+
+  .social-icons-group {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .social-icons-group a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    transition: all var(--transition-speed) ease, transform 0.2s ease;
+  }
+
+  .social-icons-group a:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  .hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-image {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: border-color var(--transition-speed) ease, transform 0.3s ease;
+  }
+
+  .profile-image:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+  }
+
+  /* PHILOSOPHY STRIP */
+  .philosophy-strip {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+  }
+
+  .strip-container {
+    max-width: 900px;
+  }
+
+  .strip-title {
+    display: block;
+    width: max-content;
+    margin: 0 auto 1.5rem auto;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+  }
+
+  .strip-item i {
+    font-size: 1.5rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  .strip-item p {
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* TIMELINE SECTION */
+  .timeline {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 300px;
+    width: 2px;
+    background-color: var(--border-color);
+    transition: background-color var(--transition-speed) ease;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 300px 40px 1fr;
+    margin-bottom: 3.5rem;
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .timeline-meta {
+    text-align: right;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .timeline-company {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .timeline-period {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .timeline-marker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .timeline-marker::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 3px solid var(--accent);
+    z-index: 1;
+    transition: background-color var(--transition-speed) ease;
+  }
+
+  .timeline-item:hover .timeline-marker::after {
+    background-color: var(--accent);
+    transform: scale(1.15);
+  }
+
+  .timeline-content {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-role {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    margin-top: -2px;
+  }
+
+  .timeline-highlights {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .timeline-highlights li {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .accent-bullet {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  /* SKILLS SECTION */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .skills-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+
+  .skills-category-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .skill-icon {
+    color: var(--accent);
+    font-size: 0.95rem;
+  }
+
+  .skills-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .compact-tech-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color var(--transition-speed) ease, transform 0.25s ease;
+  }
+
+  .compact-tech-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .compact-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .compact-card-icon {
+    font-size: 1.15rem;
+    color: var(--accent);
+  }
+
+  .compact-card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .compact-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .mini-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+  }
+
+  /* EDUCATION & INTERESTS */
+  .edu-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+  }
+
+  .edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .edu-degree {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+  }
+
+  .edu-field {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .edu-inst {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .edu-period {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .interests-card {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .interest-intro {
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  .interests-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .interest-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .interest-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+  }
+
+  .interest-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    margin-bottom: 0.15rem;
+  }
+
+  .interest-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  /* BLOG / PUBLISHED ARTICLES */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .blog-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: border-color var(--transition-speed) ease, transform 0.25s ease;
+  }
+
+  .blog-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+  }
+
+  .blog-icon-wrap {
+    font-size: 2.25rem;
+    color: var(--accent);
+  }
+
+  .blog-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .blog-card-title {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+    text-transform: capitalize;
+  }
+
+  .blog-card-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .blog-card-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  /* RESPONSIVE BREAKPOINTS */
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 3.5rem;
+    }
+    .timeline::before {
+      left: 30px;
+    }
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding-left: 60px;
+    }
+    .timeline-meta {
+      text-align: left;
+      padding-right: 0;
+    }
+    .timeline-marker {
+      position: absolute;
+      left: 30px;
+    }
+    .timeline-marker::after {
+      left: -6px;
+    }
+    .timeline-content {
+      padding-left: 0;
+    }
+    .skills-stack-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+    .hero-title {
+      font-size: 3rem;
+    }
+    .hero-meta {
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .social-icons-group {
+      justify-content: center;
+    }
+    .hero-image-wrapper {
+      order: -1;
+    }
+    .profile-image {
+      width: 220px;
+      height: 220px;
+    }
+    .grid-two-col {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .skills-stack-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,399 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Atanu Roy - R&D Engineering Leader & Manager" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%233b82f6'/><text x='50' y='65' font-family='sans-serif' font-size='46' font-weight='bold' fill='white' text-anchor='middle'>AR</text></svg>">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-25248434-2"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-25248434-2');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Saira+Extra+Condensed:wght@500;700;800&display=swap" rel="stylesheet" />
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Inline Script to prevent Theme Flash -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      };
+
+      const theme = getTheme();
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="/" class="nav-brand">
+          <span class="brand-first">Atanu </span><span class="brand-last">Roy</span>
+        </a>
+        <nav class="nav-menu">
+          <a href="/#about" class="nav-link">About</a>
+          <a href="/#experience" class="nav-link">Experience</a>
+          <a href="/#skills" class="nav-link">Skills</a>
+          <a href="/#blog" class="nav-link">Blog</a>
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <i class="fa-solid fa-moon sun-icon"></i>
+            <i class="fa-solid fa-sun moon-icon"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; {new Date().getFullYear()} Atanu Roy</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/roy-atanu/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/RoyAtanu" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a href="https://stackoverflow.com/users/2782901/atanu-roy?tab=profile" aria-label="Stack Overflow" target="_blank" rel="noopener"><i class="fab fa-stack-overflow"></i></a>
+          <a href="https://x.com/roy_atanu" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Client-side script for Theme Toggle & Interactive elements -->
+    <script>
+      const themeToggleBtn = document.getElementById('theme-toggle');
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.contains('dark');
+          if (isDark) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          }
+        });
+      }
+
+      // Add active state to nav links on scroll
+      const sections = document.querySelectorAll('section[id]');
+      window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        sections.forEach(current => {
+          const sectionHeight = (current as HTMLElement).offsetHeight;
+          const sectionTop = (current as HTMLElement).offsetTop - 100;
+          const sectionId = current.getAttribute('id');
+          const navLink = document.querySelector(`.nav-menu a[href*="#${sectionId}"]`);
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink?.classList.add('active');
+          } else {
+            navLink?.classList.remove('active');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Base Variables and Reset */
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --accent: #3b82f6;
+    --accent-dark: #1d4ed8;
+    --border-color: #e2e8f0;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(226, 232, 240, 0.8);
+    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --transition-speed: 0.25s;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Saira Extra Condensed', sans-serif;
+    --dot-color: rgba(15, 23, 42, 0.07);
+    --aurora-1: rgba(14, 165, 233, 0.12);
+    --aurora-2: rgba(99, 102, 241, 0.10);
+  }
+
+  :root.dark {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --accent: #3b82f6;
+    --accent-dark: #60a5fa;
+    --border-color: #334155;
+    --glass-bg: rgba(15, 23, 42, 0.8);
+    --glass-border: rgba(51, 65, 85, 0.8);
+    --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --dot-color: rgba(255, 255, 255, 0.04);
+    --aurora-1: rgba(56, 189, 248, 0.08);
+    --aurora-2: rgba(168, 85, 247, 0.06);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    position: relative;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    overflow-x: hidden;
+  }
+
+  /* Dot Matrix Background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+
+  /* Animated Aurora Flares */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    z-index: -1;
+    background-image: 
+      radial-gradient(circle at 30% 30%, var(--aurora-1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, var(--aurora-2) 0%, transparent 50%);
+    pointer-events: none;
+    animation: aurora-pulse 25s infinite alternate ease-in-out;
+    transform-origin: center;
+  }
+
+  @keyframes aurora-pulse {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(-5%, 5%) rotate(10deg) scale(1.05);
+    }
+    100% {
+      transform: translate(5%, -5%) rotate(-10deg) scale(0.95);
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+  }
+
+  a:hover {
+    color: var(--accent-dark);
+  }
+
+  /* Sticky Navigation Header */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+
+  .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+
+  .brand-last {
+    color: var(--accent);
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 0.25rem 0;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width var(--transition-speed) ease;
+  }
+
+  .nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Theme Toggle Button */
+  .theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  }
+
+  .theme-toggle-btn:hover {
+    background-color: var(--border-color);
+    color: var(--accent);
+  }
+
+  :root.dark .sun-icon {
+    display: none;
+  }
+  :root:not(.dark) .moon-icon {
+    display: none;
+  }
+
+  /* Layout and Content */
+  .main-content {
+    margin-top: 70px; /* Offset for sticky nav */
+    min-height: calc(100vh - 170px);
+  }
+
+  /* Footer */
+  .footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-container p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .footer-socials a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color var(--transition-speed) ease, transform 0.2s ease;
+  }
+
+  .footer-socials a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 1rem;
+    }
+    .nav-menu {
+      gap: 1rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+    }
+  }
+</style>

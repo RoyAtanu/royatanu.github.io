@@ -1,0 +1,203 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Generate static paths for each blog post
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<BaseLayout title={`${post.data.title} | Atanu Roy`} description={post.data.description}>
+  <article class="blog-post-article">
+    <!-- Post Header -->
+    <header class="post-header">
+      <div class="container">
+        <a href="/blog" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Blog</a>
+        <h1 class="post-title">{post.data.title}</h1>
+        <div class="post-meta">
+          <span class="post-author">By {post.data.author}</span>
+          <span class="meta-divider">&middot;</span>
+          <span class="post-date">{formatDate(post.data.pubDate)}</span>
+        </div>
+        {post.data.tags && (
+          <div class="post-tags">
+            {post.data.tags.map(tag => (
+              <span class="tag-item">{tag}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Post Body -->
+    <div class="post-content-wrapper">
+      <div class="container content-container">
+        <div class="markdown-body">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  .post-header {
+    padding: 6rem 0 3rem 0;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .back-link:hover {
+    color: var(--accent-dark);
+  }
+
+  .post-title {
+    font-size: 3rem;
+    line-height: 1.15;
+    color: var(--text-primary);
+    text-transform: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-divider {
+    font-weight: bold;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-item {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    box-shadow: var(--card-shadow);
+  }
+
+  /* Content Wrapper */
+  .post-content-wrapper {
+    padding: 4rem 0 7rem 0;
+  }
+
+  /* Markdown Body Styles (scoped to .markdown-body) */
+  .markdown-body :global(p) {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+  }
+
+  .markdown-body :global(h2) {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: none;
+  }
+
+  .markdown-body :global(h3) {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    text-transform: none;
+  }
+
+  .markdown-body :global(ul), .markdown-body :global(ol) {
+    margin-bottom: 1.75rem;
+    padding-left: 1.5rem;
+  }
+
+  .markdown-body :global(li) {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .markdown-body :global(blockquote) {
+    border-left: 4px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    background-color: var(--bg-secondary);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  .markdown-body :global(blockquote p) {
+    margin-bottom: 0;
+    color: var(--text-primary);
+  }
+
+  .markdown-body :global(strong) {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .markdown-body :global(hr) {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 3rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .post-title {
+      font-size: 2.25rem;
+    }
+    .post-content-wrapper {
+      padding: 3rem 0 5rem 0;
+    }
+  }
+</style>
