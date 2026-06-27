@@ -3,28 +3,50 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { experiences, educations, skillGroups } from '../data/experience';
 ---
 
-<BaseLayout title="Atanu Roy | R&D Engineering Leader & Manager">
+<BaseLayout title="Atanu Roy — R&D Consultant & Engineering Leader">
 
   <!-- HERO SECTION -->
   <section id="about" class="hero-section">
-    <div class="container hero-container">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          Atanu <span class="accent-text">Roy</span>
-        </h1>
-        <div class="hero-subtitle">
-          R&D Leader | Software Architect | Entrepreneur
+    <div class="container hero-container-new">
+
+      <!-- Header Row: Name/Tagline/Meta on Left, Profile Picture on Right -->
+      <div class="hero-header-row">
+        <div class="hero-header-left">
+          <h1 class="hero-title">
+            Atanu <span class="accent-text">Roy</span>
+          </h1>
+          <div class="hero-subtitle">
+            I help high-growth B2B startups build scalable, predictable R&D practices — from founder-led hustle to self-governing engineering org.
+          </div>
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-map-pin"></i> Pune, India</span>
+            <span><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@atanuroy.dev">contact@atanuroy.dev</a></span>
+          </div>
         </div>
-        <div class="hero-meta">
-          <span><i class="fa-solid fa-map-pin"></i> Pune, India</span>
-          <span><i class="fa-solid fa-envelope"></i> <a href="mailto:contact@atanuroy.dev">contact@atanuroy.dev</a></span>
+        <div class="hero-image-wrapper">
+          <img src="/profile.jpg" alt="Atanu Roy" class="profile-image" />
         </div>
+      </div>
+
+      <!-- Full Width Body Paragraphs -->
+      <div class="hero-body-full">
         <p class="hero-lead">
-          I enable R&D teams at high-growth businesses to deliver quality with consistency. With over 13 years of experience building, leading, and empowering high-performance Agile engineering teams in enterprise-scale R&D organizations, I focus on scaling software architectures, optimizing delivery pipelines, and nurturing leadership talent.
+          I enable R&D teams at high-growth B2B startups to transition from unstructured chaos to structured, self-driven engineering organizations. Over the last 13+ years, I have built and led high-performance Agile teams within enterprise-scale R&D organizations, focusing on architectural scalability, predictable delivery, and leadership coaching.
         </p>
+        <p class="hero-lead">
+          Today, I share this hands-on experience through <a href="https://consulting.clofio.com" target="_blank" rel="noopener" style="font-weight: 600; text-decoration: underline;">Project Journey</a>, my R&D consulting practice helping post-PMF startups build scalable, predictable engineering practices.
+        </p>
+      </div>
+
+      <!-- Centered Actions & Socials -->
+      <div class="hero-actions-centered">
+        <a href="https://consulting.clofio.com" class="cta-button" target="_blank" rel="noopener">Work With Me &rarr;</a>
         <div class="social-icons-group">
-          <a href="https://www.linkedin.com/in/atanuroy2020/" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <a href="https://www.linkedin.com/in/roy-atanu/" aria-label="LinkedIn" target="_blank" rel="noopener">
             <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/roy_atanu" aria-label="Twitter" target="_blank" rel="noopener">
+            <i class="fab fa-twitter"></i>
           </a>
           <a href="https://github.com/RoyAtanu" aria-label="GitHub" target="_blank" rel="noopener">
             <i class="fab fa-github"></i>
@@ -32,14 +54,9 @@ import { experiences, educations, skillGroups } from '../data/experience';
           <a href="https://stackoverflow.com/users/2782901/atanu-roy?tab=profile" aria-label="Stack Overflow" target="_blank" rel="noopener">
             <i class="fab fa-stack-overflow"></i>
           </a>
-          <a href="https://twitter.com/roy_atanu" aria-label="Twitter" target="_blank" rel="noopener">
-            <i class="fab fa-twitter"></i>
-          </a>
         </div>
       </div>
-      <div class="hero-image-wrapper">
-        <img src="/profile.jpg" alt="Atanu Roy" class="profile-image" />
-      </div>
+
     </div>
   </section>
 
@@ -90,7 +107,7 @@ import { experiences, educations, skillGroups } from '../data/experience';
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Expertise</span>
-        <h2 class="section-title">Leadership & Tech Stack</h2>
+        <h2 class="section-title">How I Think & What I Work With</h2>
       </div>
 
       <div class="skills-grid">
@@ -110,8 +127,12 @@ import { experiences, educations, skillGroups } from '../data/experience';
       </div>
 
       <!-- COMPACT VISUAL TECH STACK -->
-      <div class="skills-stack-grid">
-        
+      <div class="tech-stack-section">
+        <p class="tech-stack-framing">
+          I'm hands-on across latest technologies, which enables me to advise on architecture and infrastructure decisions.
+        </p>
+        <div class="skills-stack-grid">
+
         <div class="compact-tech-card">
           <div class="compact-card-header">
             <i class="fa-solid fa-cloud compact-card-icon"></i>
@@ -230,6 +251,7 @@ import { experiences, educations, skillGroups } from '../data/experience';
         </div>
 
       </div>
+      </div>
     </div>
   </section>
 
@@ -285,12 +307,12 @@ import { experiences, educations, skillGroups } from '../data/experience';
     </div>
   </section>
 
-  <!-- BLOG / ARTICLES SECTION -->
+  <!-- BLOG / ARTICLES SECTION (Hidden for now)
   <section id="blog" class="section-padding">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Thought Leadership</span>
-        <h2 class="section-title">Published Articles</h2>
+        <h2 class="section-title">Perspectives</h2>
       </div>
 
       <div class="blog-grid">
@@ -312,17 +334,27 @@ import { experiences, educations, skillGroups } from '../data/experience';
           </div>
         </a>
 
-        <a href="https://www.linkedin.com/pulse/work-from-home-why-i-think-might-get-addicted-atanu-roy/" target="_blank" rel="noopener" class="blog-card">
-          <div class="blog-icon-wrap"><i class="fa-solid fa-house-laptop"></i></div>
+        <div class="blog-card coming-soon">
+          <div class="blog-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
           <div class="blog-card-content">
-            <h3 class="blog-card-title">Work from Home : Why I might get addicted to it</h3>
-            <p class="blog-card-excerpt">Early observations on performance improvements, self-discipline, and deep focus in a fully distributed engineering setup.</p>
-            <span class="blog-card-link">Read on LinkedIn <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            <h3 class="blog-card-title">How to know when your R&D team is ready to scale</h3>
+            <p class="blog-card-excerpt">A strategic framework for founders to identify inflection points and transition to self-governing engineering organizations.</p>
+            <span class="coming-soon-badge">Coming Soon</span>
           </div>
-        </a>
+        </div>
+
+        <div class="blog-card coming-soon">
+          <div class="blog-icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="blog-card-content">
+            <h3 class="blog-card-title">The hidden cost of founder-centric engineering</h3>
+            <p class="blog-card-excerpt">How founder-led technical decision-making becomes a bottleneck for scale, and how to delegate architecture safely.</p>
+            <span class="coming-soon-badge">Coming Soon</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  -->
 
 </BaseLayout>
 
@@ -376,16 +408,42 @@ import { experiences, educations, skillGroups } from '../data/experience';
 
   /* HERO SECTION */
   .hero-section {
-    padding: 8rem 0 5rem 0;
+    padding: 3rem 0 3rem 0; /* Reduced top/bottom padding to reclaim vital space */
     display: flex;
     align-items: center;
   }
 
-  .hero-container {
+  .hero-container-new {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .hero-header-row {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.3fr 0.7fr;
     gap: 4rem;
     align-items: center;
+  }
+
+  .hero-header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-body-full {
+    width: 100%;
+  }
+
+  .hero-actions-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .hero-title {
@@ -401,13 +459,35 @@ import { experiences, educations, skillGroups } from '../data/experience';
   }
 
   .hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: none; /* Changed from uppercase */
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-family: var(--font-heading);
     letter-spacing: 0.5px;
+    line-height: 1.35;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  }
+
+  .cta-button:hover {
+    background-color: var(--accent-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
   }
 
   .hero-meta {
@@ -459,13 +539,13 @@ import { experiences, educations, skillGroups } from '../data/experience';
 
   .hero-image-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 
   .profile-image {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--border-color);
@@ -676,11 +756,28 @@ import { experiences, educations, skillGroups } from '../data/experience';
     font-size: 0.95rem;
   }
 
+  .tech-stack-section {
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+  }
+
+  .tech-stack-framing {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
   .skills-stack-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.25rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 
   .compact-tech-card {
@@ -848,6 +945,32 @@ import { experiences, educations, skillGroups } from '../data/experience';
     transform: translateY(-5px);
   }
 
+  .blog-card.coming-soon {
+    opacity: 0.8;
+    border-style: dashed;
+    background-color: rgba(var(--bg-secondary), 0.5);
+    cursor: default;
+  }
+
+  .blog-card.coming-soon:hover {
+    transform: none;
+    border-color: var(--border-color);
+  }
+
+  .coming-soon-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background-color: var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
   .blog-icon-wrap {
     font-size: 2.25rem;
     color: var(--accent);
@@ -884,6 +1007,9 @@ import { experiences, educations, skillGroups } from '../data/experience';
 
   /* RESPONSIVE BREAKPOINTS */
   @media (max-width: 992px) {
+    .hero-header-row {
+      gap: 2rem;
+    }
     .hero-title {
       font-size: 3.5rem;
     }
@@ -915,13 +1041,20 @@ import { experiences, educations, skillGroups } from '../data/experience';
   }
 
   @media (max-width: 768px) {
-    .hero-container {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+    .hero-container-new {
       text-align: center;
+      gap: 2rem;
+    }
+    .hero-header-row {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
     .hero-title {
       font-size: 3rem;
+    }
+    .hero-actions-centered {
+      flex-direction: column;
+      gap: 1.25rem;
     }
     .hero-meta {
       justify-content: center;
@@ -933,10 +1066,11 @@ import { experiences, educations, skillGroups } from '../data/experience';
     }
     .hero-image-wrapper {
       order: -1;
+      justify-content: center;
     }
     .profile-image {
-      width: 220px;
-      height: 220px;
+      width: 180px;
+      height: 180px;
     }
     .grid-two-col {
       grid-template-columns: 1fr;

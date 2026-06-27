@@ -12,8 +12,9 @@ export const experiences: Experience[] = [
     company: "Clofio",
     period: "May 2023 - Present",
     highlights: [
-      "Worked with 50+ global organizations to build robust cloud infrastructure serving millions of end users",
-      "Scaled the business to $100K+ ARR, spanning across India, US and EU",
+      "Transitioned early-stage startups from R&D chaos to predictable, scalable engineering operations through strategic advisory",
+      "Developed and implemented The Journey Framework™, a proprietary three-phase methodology designed to institutionalize engineering practices and empower self-governing teams",
+      "Advised and collaborated with 50+ global organizations across India, the US, and the EU to optimize cloud architectures and infrastructure governance serving millions of end users",
     ],
   },
   {

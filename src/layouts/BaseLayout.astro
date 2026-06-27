@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Atanu Roy - R&D Engineering Leader & Manager" } = Astro.props;
+const { title, description = "Atanu Roy — R&D Consultant & Engineering Leader" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ const { title, description = "Atanu Roy - R&D Engineering Leader & Manager" } = 
           <a href="/#about" class="nav-link">About</a>
           <a href="/#experience" class="nav-link">Experience</a>
           <a href="/#skills" class="nav-link">Skills</a>
-          <a href="/#blog" class="nav-link">Blog</a>
+          <a href="https://consulting.clofio.com" target="_blank" rel="noopener" class="nav-link consulting-nav-link">Work With Me &rarr;</a>
           <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
             <i class="fa-solid fa-moon sun-icon"></i>
             <i class="fa-solid fa-sun moon-icon"></i>
@@ -204,7 +204,7 @@ const { title, description = "Atanu Roy - R&D Engineering Leader & Manager" } = 
     width: 140%;
     height: 140%;
     z-index: -1;
-    background-image: 
+    background-image:
       radial-gradient(circle at 30% 30%, var(--aurora-1) 0%, transparent 50%),
       radial-gradient(circle at 70% 70%, var(--aurora-2) 0%, transparent 50%);
     pointer-events: none;
@@ -293,6 +293,15 @@ const { title, description = "Atanu Roy - R&D Engineering Leader & Manager" } = 
 
   .nav-link:hover, .nav-link.active {
     color: var(--accent);
+  }
+
+  .consulting-nav-link {
+    font-weight: 700 !important;
+    color: var(--accent) !important;
+  }
+
+  .consulting-nav-link:hover {
+    color: var(--accent-dark) !important;
   }
 
   .nav-link::after {
